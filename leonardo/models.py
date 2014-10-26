@@ -40,3 +40,33 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+
+class Site(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sitename = db.Column(db.String)
+    rooturl = db.Column(db.String)
+
+    def __init__(self, sitename, rooturl):
+        self.sitename = sitename
+        self.rooturl = rooturl
+
+    def __repr__(self):
+        return '<Site %r>' % self.sitename
+
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
+    slug = db.Column(db.String)
+    md = db.Column(db.String)
+    html = db.Column(db.String)
+
+    def __init__(self, title, slug, md, html):
+        self.title = title
+        self.slug = slug
+        self.md = md
+        self.html = html
+
+    def __repr__(self):
+        return '<Post %r>' % self.title

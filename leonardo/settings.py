@@ -12,10 +12,10 @@ class DevConfig(Config):
     DEBUG = True
     DEBUG_TB_INTERCEPT_REDIRECTS = False
 
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///../database.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///../database-dev.db'
     SQLALCHEMY_ECHO = True
 
-    CACHE_TYPE = 'null'
+    CACHE_TYPE = 'simple'
 
     # This allows us to test the forms from WTForm
     WTF_CSRF_ENABLED = False

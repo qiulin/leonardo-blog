@@ -6,6 +6,7 @@ from leonardo.forms import LoginForm
 from leonardo.models import User
 
 main = Blueprint('main', __name__)
+admin = Blueprint('admin', __name__)
 
 
 @main.route('/')
@@ -43,3 +44,15 @@ def logout():
 @login_required
 def restricted():
     return "You can only see this if you are logged in!", 200
+
+
+@admin.route("/dashboard")
+@login_required
+def dashboard():
+    return "dashboard"
+
+
+@admin.route("/post")
+@login_required
+def post():
+    return
