@@ -59,13 +59,19 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     slug = db.Column(db.String)
-    md = db.Column(db.String)
+    markdown = db.Column(db.String)
     html = db.Column(db.String)
+    image = db.Column(db.Text, length=2000)
+    page = db.Column(db.Boolean)
+    status = db.Column(db.Boolean)
+    author_id = db.Column(db.Integer, db.ForeignKey("User.id"))
+    created_at = db.Column(db.DateTime)
+    modified_at = db.Column(db.DateTime)
 
-    def __init__(self, title, slug, md, html):
+    def __init__(self, title, slug, markdown, html):
         self.title = title
         self.slug = slug
-        self.md = md
+        self.markdown = markdown
         self.html = html
 
     def __repr__(self):
